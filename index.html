@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Neon Depths – Indie Game</title>
-  <meta name="description" content="Official webshop for the indie game Neon Depths." />
+  <title>Bike Game</title>
+  <meta name="description" content="Official webshop for \"An Unremarkable Bike Game\"." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <h1 class="site-title">Neon Depths</h1>
-    <nav aria-label="Main navigation">
+  <!-- Decorative splash screen -->
+  <header class="splash" aria-hidden="true"></header>
+
+  <!-- Sticky header (appears after splash) -->
+  <header class="site-header" id="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
       <ul class="nav-list">
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -24,11 +27,10 @@
   </header>
 
   <main id="main-content">
-    <section class="hero">
-      <h2>Explore the Depths</h2>
+    <section>
+      <h1>An Unremarkable Bike Game</h1>
       <p>
-        Neon Depths is a fast-paced indie game focused on exploration,
-        atmosphere, and tight gameplay.
+        It's a bike game. Nothing particularly remarkable over here.
       </p>
     </section>
 
@@ -41,18 +43,31 @@
       />
     </section>
 
-    <section>
+    <section class="trailer-section">
       <h2>Trailer</h2>
-      <p>
-        <a href="#" aria-label="Watch the Neon Depths trailer (external link)">
-          Watch trailer (external video)
-        </a>
+
+      <div class="video-frame">
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/MHYwml86jDw"
+            title="An Unremarkable Bike Game – Official Game Trailer"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <p class="video-fallback">
+        If the video cannot be displayed,
+        <a href="https://www.youtube.com/watch?v=MHYwml86jDw">
+          watch it on YouTube
+        </a>.
       </p>
     </section>
 
     <section class="purchase">
       <h2>Buy the Game</h2>
-      <p>Available for Windows, macOS, and Linux.</p>
+      <p>Available for Android.</p>
       <button type="button" disabled aria-disabled="true">
         Buy Now (Demo)
       </button>
@@ -67,7 +82,24 @@
         <li><a href="imprint.html">Imprint</a></li>
       </ul>
     </nav>
-    <p>© 2025 Neon Depths Studio</p>
+    <p>© 2025 Pointless Polygons</p>
   </footer>
+
+  <!-- Show header after splash -->
+  <script>
+    const header = document.getElementById("site-header");
+    const splash = document.querySelector(".splash");
+
+    function updateHeaderVisibility() {
+      if (window.scrollY > splash.offsetHeight) {
+        header.classList.add("is-visible");
+      } else {
+        header.classList.remove("is-visible");
+      }
+    }
+
+    window.addEventListener("scroll", updateHeaderVisibility);
+    window.addEventListener("resize", updateHeaderVisibility);
+  </script>
 </body>
 </html>

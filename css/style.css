@@ -1,4 +1,15 @@
-/* Base reset */
+/* =========================
+   Base reset & variables
+   ========================= */
+
+:root {
+  --bg-main: #664933;
+  --bg-dark: #523a2a;
+  --bg-deep: #2b1f17;
+  --text-light: #f5f1ec;
+  --text-dark: #111;
+}
+
 *,
 *::before,
 *::after {
@@ -10,11 +21,15 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   line-height: 1.6;
-  color: #111;
-  background-color: #ffffff;
+
+  background-color: var(--bg-main);
+  color: var(--text-light);
 }
 
-/* Skip link */
+/* =========================
+   Skip link
+   ========================= */
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -22,85 +37,178 @@ body {
   background: #000;
   color: #fff;
   padding: 0.5rem 1rem;
-  z-index: 100;
+  z-index: 2000;
 }
 
 .skip-link:focus {
   top: 0;
 }
 
-/* Header */
-.site-header {
-  padding: 1rem;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #ddd;
+/* =========================
+   Splash screen
+   ========================= */
+
+.splash {
+  min-height: 100vh;
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.site-title {
-  margin: 0 0 0.5rem 0;
+/* =========================
+   Sticky header
+   ========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+
+  z-index: 1000;
+}
+
+.site-header.is-visible {
+  transform: translateY(0);
+}
+
+.site-nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
 }
 
 .nav-list {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-list a {
+  color: var(--text-light);
   text-decoration: none;
-  color: #0044cc;
+  font-weight: 500;
 }
 
-.nav-list a:focus,
-.nav-list a:hover {
+.nav-list a:hover,
+.nav-list a:focus {
   text-decoration: underline;
 }
 
-/* Main content */
+/* =========================
+   Main content
+   ========================= */
+
 main {
   max-width: 960px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 4rem 1rem 2rem;
+
+  background-color: #ffffff;
+  color: var(--text-dark);
+  border-radius: 8px;
 }
 
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
-/* Images */
+/* =========================
+   Images
+   ========================= */
+
 .responsive-image {
   max-width: 100%;
   height: auto;
   border: 1px solid #ccc;
 }
 
-/* Buttons */
-button {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+/* =========================
+   Trailer (framed video)
+   ========================= */
+
+.trailer-section {
+  text-align: center;
 }
 
-button[disabled] {
+.video-frame {
+  max-width: 800px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+
+  background-color: var(--bg-deep);
+  border-radius: 12px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.video-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-fallback {
+  font-size: 0.9rem;
+}
+
+/* =========================
+   Purchase section
+   ========================= */
+
+.purchase button {
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
   cursor: not-allowed;
   opacity: 0.6;
 }
 
-/* Footer */
+/* =========================
+   Footer
+   ========================= */
+
 .site-footer {
-  background-color: #f5f5f5;
-  border-top: 1px solid #ddd;
-  padding: 1rem;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
   text-align: center;
+  padding: 1.5rem 1rem;
 }
 
 .footer-list {
   list-style: none;
-  padding: 0;
-  margin: 0 0 0.5rem 0;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+}
+
+.footer-list a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.footer-list a:hover,
+.footer-list a:focus {
+  text-decoration: underline;
 }
