@@ -18,8 +18,8 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  /*font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;*/
   line-height: 1.6;
 
   background-color: var(--bg-main);
@@ -109,17 +109,32 @@ body {
    ========================= */
 
 main {
-  max-width: 960px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 4rem 1rem 2rem;
 
-  background-color: #ffffff;
+  background-color: var(--bg-deep);
   color: var(--text-dark);
-  border-radius: 8px;
 }
 
 section {
   margin-bottom: 2.5rem;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.02em;
 }
 
 /* =========================
@@ -211,4 +226,56 @@ section {
 .footer-list a:hover,
 .footer-list a:focus {
   text-decoration: underline;
+}
+
+.screenshots-section {
+  margin: 4rem 0;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 3rem;
+  column-gap: 2rem;
+
+  /* Let images bleed into background */
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
+/* Text blocks */
+.shot-text {
+  align-self: center;
+  padding: 1.25rem 1.75rem;
+
+  border-radius: 8px;
+  color: #111;
+  line-height: 1.5;
+}
+
+/* Images */
+.shot {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.45);
+  background-color: #000;
+}
+
+/* Controlled variation */
+.shot-1 {
+  transform: rotate(-2deg) translateX(-6px);
+}
+
+.shot-2 {
+  transform: rotate(1.8deg) translateX(6px);
+}
+
+.shot-3 {
+  transform: rotate(1deg) translateX(-4px);
+}
+
+.shot-4 {
+  transform: rotate(-1.6deg) translateX(4px);
 }
